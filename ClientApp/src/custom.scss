@@ -11,20 +11,25 @@ body {
   min-height: 100%;
   background-image: url(images/back.jpg);
   background-size: cover;
-  color: (#827d7b);
+  color: #f2efec;
 }
-header li {
+header {
   margin: 0;
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Cormorant Unicase', serif;
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
+  color: rgb(242, 239, 236);
 }
 nav h2 {
   margin-bottom: 30 px;
-  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 li img {
   margin-right: 0;
+}
+.search {
 }
