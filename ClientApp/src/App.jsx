@@ -5,24 +5,49 @@ import { Cigars } from './pages/Cigars'
 import { NewCigar } from './pages/NewCigar'
 import { SignIn } from './pages/SignIn'
 import { SignUp } from './pages/SignUp'
-import search from './images/search.png'
-import avatar from './images/user.png'
+
+import { Link, Route, Switch, useHistory, useParams } from 'react-router-dom'
 
 export function App() {
   return (
     <>
       <header>
-        <div>Menu</div>
-        <h2 className="header-name">Humidor</h2>
-        <div className="Search">
-          <img src={search} alt={search} height="15" width="15" />
-        </div>
-        <div className="Login">
-          <img src={avatar} alt={avatar} height="16" width="16" />
-        </div>
+        <h1 className="header-name">Humidor</h1>
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+              <a href="#">
+                <li>Add A Cigar</li>
+              </a>
+              <a href="#">
+                <li>Brands</li>
+              </a>
+              <a href="#">
+                <li>Search</li>
+              </a>
+              <a href="#">
+                <li>Sign In</li>
+              </a>
+            </ul>
+          </div>
+        </nav>
       </header>
       <main>
-        <Cigars></Cigars>
+        <Switch>
+          <Route exact path="/Cigars">
+            <Cigars />
+          </Route>
+          <Route exact path="/Cigars/:id">
+            <Cigar />
+          </Route>
+          <Route path="*">Not Found</Route>
+        </Switch>
       </main>
       {/* <footer>
         <p>logo</p>

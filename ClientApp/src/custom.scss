@@ -2,6 +2,145 @@
   font: 16px / 1 sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+
+  /* make it look decent enough */
+  background: #232323;
+  color: #f2efec;
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 3px;
+  left: -225px;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #f2efec;
+
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: tomato;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 37px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-3px, -3px);
+  background: #f2efec;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 375px;
+  height: 812px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background-image: url('images/background2.jpg');
+
+  // background: #7b6c52;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 30px 0;
+  font-size: 28px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
 html {
   height: 100vh;
   width: 100vw;
@@ -14,24 +153,25 @@ body {
 
   background-image: url(images/back.jpg);
   background-size: cover;
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
 
   // background-attachment: fixed;
 
   color: #f2efec;
 }
-// // @media (min-width: 500px) {
-// //   body {
-// //     background-size: contain;
-// //     background-repeat: no-repeat;
-// //     background-position-x: center;
-// //     background-color: #2e231d;
-//   }
-// }
+@media (min-width: 500px) {
+  body {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #2e231d;
+  }
+}
 
 header {
   margin: 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
   color: #f2efec;
@@ -46,17 +186,49 @@ main {
     margin-right: 3rem;
     margin-top: 0.5rem;
   }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-    margin-top: 3rem;
-    margin-left: 1rem;
-
-    div {
-      padding: 1rem;
-    }
+  ul {
+    border: 1px solid #f2efec;
+    border-radius: 10px;
   }
+}
+a:link,
+a:visited {
+  color: #f2efec;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover,
+a:active {
+  color: #c83232;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  margin-top: 3rem;
+  margin-left: 1rem;
+
+  div {
+    padding: 1rem;
+  }
+}
+button {
+  border: 1px solid #f2efec;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+
+  color: #f2efec;
+  // font-family: 'Abril Fatface', cursive;
+  font-size: smaller;
+}
+.cigar-info {
+  font-size: large;
+  color: orangered;
+  opacity: 0.9;
+  background-color: rgb(141, 140, 140);
 }
