@@ -5,7 +5,7 @@ import { Cigars } from './pages/Cigars'
 import { NewCigar } from './pages/NewCigar'
 import { SignIn } from './pages/SignIn'
 import { SignUp } from './pages/SignUp'
-
+import axios from 'axios'
 import { Link, Route, Switch, useHistory, useParams } from 'react-router-dom'
 
 export function App() {
@@ -22,9 +22,9 @@ export function App() {
             <span></span>
 
             <ul id="menu">
-              <a href="#">
+              <Link>
                 <li>Add A Cigar</li>
-              </a>
+              </Link>
               <a href="#">
                 <li>Brands</li>
               </a>
