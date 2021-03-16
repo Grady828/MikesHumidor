@@ -33,13 +33,11 @@ export function Cigars() {
               <Link to={`/Cigars/${cigarDetails.id}`}>
                 Name:{cigarDetails.name} Qty:{cigarDetails.inStock}
               </Link>
+              <hr />
             </li>
           )
         })}
       </ul>
-      {/* <div>
-        <button>Add A Cigar</button>
-      </div> */}
       <section>
         <div>
           Humidity: <i className="fas fa-plus"></i>71%

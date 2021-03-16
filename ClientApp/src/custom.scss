@@ -1,22 +1,69 @@
-:root {
+th:root {
   font: 16px / 1 sans-serif;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+html {
+  height: 100vh;
+  width: 100vw;
+}
 
-  /* make it look decent enough */
-  background: #232323;
-  color: #f2efec;
+body {
+  padding: 0;
+  margin: 0 auto;
+  min-height: 100%;
+
+  background-image: url(images/back.jpg);
+  background-size: cover;
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
+
+  // background-attachment: fixed;
+
+  color: #f2efec;
+}
+
+@media (min-width: 500px) {
+  body {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #2e231d;
+  }
+}
+
+header {
+  position: relative;
+  margin: 0;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
+  color: #f2efec;
+  h1 {
+    text-align: center;
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  ul li {
+    list-style: none;
+    margin-right: 3rem;
+    margin-top: 0.5rem;
+  }
+  ul {
+    // border: 1px solid #f2efec;
+    border-radius: 10px;
+  }
 }
 
 #menuToggle {
   display: block;
-  position: relative;
-  top: 3px;
-  left: -225px;
+  position: absolute;
+  top: 6px;
+  left: 10px;
 
   z-index: 1;
 
@@ -86,7 +133,7 @@ body {
  */
 #menuToggle input:checked ~ span {
   opacity: 1;
-  transform: rotate(45deg) translate(-3px, -3px);
+  transform: rotate(45deg) translate(-4px, -3px);
   background: #f2efec;
 }
 
@@ -133,7 +180,6 @@ body {
   padding: 30px 0;
   font-size: 28px;
 }
-
 /*
  * And let's slide it in from the left
  */
@@ -141,56 +187,6 @@ body {
   transform: none;
 }
 
-html {
-  height: 100vh;
-  width: 100vw;
-}
-
-body {
-  padding: 0;
-  margin: 0 auto;
-  min-height: 100%;
-
-  background-image: url(images/back.jpg);
-  background-size: cover;
-  font-family: 'messinaMono', 'Courier New', Courier, monospace;
-
-  // background-attachment: fixed;
-
-  color: #f2efec;
-}
-@media (min-width: 500px) {
-  body {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-color: #2e231d;
-  }
-}
-
-header {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'messinaMono', 'Courier New', Courier, monospace;
-  color: #f2efec;
-}
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  ul li {
-    list-style: none;
-    margin-right: 3rem;
-    margin-top: 0.5rem;
-  }
-  ul {
-    border: 1px solid #f2efec;
-    border-radius: 10px;
-  }
-}
 a:link,
 a:visited {
   color: #f2efec;
@@ -200,7 +196,7 @@ a:visited {
 a:focus,
 a:hover,
 a:active {
-  color: #c83232;
+  color: #f2efec;
 }
 
 section {
@@ -215,6 +211,7 @@ section {
     padding: 1rem;
   }
 }
+
 button {
   border: 1px solid #f2efec;
   background: none;
@@ -226,9 +223,30 @@ button {
   // font-family: 'Abril Fatface', cursive;
   font-size: smaller;
 }
+
 .cigar-info {
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
   font-size: large;
-  color: orangered;
-  opacity: 0.9;
-  background-color: rgb(141, 140, 140);
+  color: #f2efec;
+}
+
+.new-cigar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.form-input input {
+  background: none;
+  border-radius: 10px;
+}
+.form-input textarea {
+  background: none;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.submit-button {
+  display: flex;
+  justify-content: center;
 }
