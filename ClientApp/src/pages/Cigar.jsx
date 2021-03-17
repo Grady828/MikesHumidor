@@ -7,7 +7,11 @@ export function Cigar() {
   const [initialInStock, setInitialInStock] = useState(0)
   const [cigarInfo, setCigarInfo] = useState({
     name: '',
-    size: 0,
+    length: 0,
+    gauge: 0,
+    wrapper: '',
+    binder: '',
+    filler: '',
     price: 0,
     inStock: 0,
     dateBought: '',
@@ -58,7 +62,11 @@ export function Cigar() {
     <>
       <div className="cigar-info">
         <p>Name: {cigarInfo.name}</p>
-        <p>Size:{cigarInfo.size}"</p>
+        <p>Length:{cigarInfo.length}"</p>
+        <p>Gauge:{cigarInfo.gauge}</p>
+        <p>Wrapper:{cigarInfo.wrapper}</p>
+        <p>Binder:{cigarInfo.binder}</p>
+        <p>Filler:{cigarInfo.filler}</p>
         <p>Price:${cigarInfo.price}</p>
         <p>
           QTY:

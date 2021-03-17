@@ -15,8 +15,12 @@ namespace MikesHumidor.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: true),
-                    Size = table.Column<int>(type: "integer", nullable: false),
+                    Length = table.Column<int>(type: "integer", nullable: false),
+                    Gauge = table.Column<int>(type: "integer", nullable: false),
                     Price = table.Column<int>(type: "integer", nullable: false),
+                    Wrapper = table.Column<string>(type: "text", nullable: true),
+                    Filler = table.Column<string>(type: "text", nullable: true),
+                    Binder = table.Column<string>(type: "text", nullable: true),
                     InStock = table.Column<int>(type: "integer", nullable: false),
                     DateBought = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Strength = table.Column<string>(type: "text", nullable: true),

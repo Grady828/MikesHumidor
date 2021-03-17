@@ -31,14 +31,14 @@ namespace MikesHumidor.Controllers
         // Returns a list of all your Cigars
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cigar>>> GetCigars()
+        public async Task<ActionResult<IEnumerable<Cigar>>> GetCigars(string filter)
 
         {
-            // Find the restaurant in the database using Include to ensure we have the associated reviews
-
+            // Find the cigar in the database using Include to ensure we have the associated reviews
+            
             // Uses the database context in `_context` to request all of the Cigars, sort
             // them by row id and return them as a JSON array.
-            return await _context.Cigars.Include(cigar => cigar.Brands).OrderBy(row => row.Id).ToListAsync();
+            return await _context.Cigars.Include(cigar => cigar.Brand).OrderBy(row => row.Id).ToListAsync();
         }
 
         // GET: api/Cigars/5
@@ -54,7 +54,7 @@ namespace MikesHumidor.Controllers
         {
             // Find the cigar in the database using `FindAsync` to look it up by id
             // var cigar = await _context.Cigars.FindAsync(id);
-            var cigar = await _context.Cigars.Include(cigar => cigar.Brands).Where(cigar => cigar.Id == id).FirstOrDefaultAsync();
+            var cigar = await _context.Cigars.Include(cigar => cigar.Brand).Where(cigar => cigar.Id == id).FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (cigar == null)

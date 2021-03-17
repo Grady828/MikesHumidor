@@ -32,9 +32,10 @@ export function Cigars() {
             <li key={cigarDetails.id}>
               <Link to={`/Cigars/${cigarDetails.id}`}>
                 Name:{cigarDetails.name} Qty:{cigarDetails.inStock} Brand:
-                {cigarDetails.brands.map((brand) => {
+                {/* {cigarDetails.brands.map((brand) => {
                   return <>{brand.brandName}</>
-                })}
+                })} */}
+                {cigarDetails.brand.brandName}
               </Link>
               <hr />
             </li>
@@ -42,14 +43,14 @@ export function Cigars() {
         })}
       </ul>
       <section>
-        <div>
+        {/* <div>
           Humidity: <i className="fas fa-plus"></i>71%
           <i className="fas fa-minus"></i>
         </div>
         <div>
           Temp: <i className="fas fa-plus"></i>68&deg;
           <i className="fas fa-minus"></i>
-        </div>
+        </div> */}
       </section>
     </>
   )

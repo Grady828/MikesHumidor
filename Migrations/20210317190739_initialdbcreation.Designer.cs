@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MikesHumidor.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210316224839_initialdbcreation")]
+    [Migration("20210317190739_initialdbcreation")]
     partial class initialdbcreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,10 +51,22 @@ namespace MikesHumidor.Migrations
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
+                    b.Property<string>("Binder")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("DateBought")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<string>("Filler")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Gauge")
+                        .HasColumnType("integer");
+
                     b.Property<int>("InStock")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Length")
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
@@ -66,10 +78,10 @@ namespace MikesHumidor.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Size")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Strength")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Wrapper")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

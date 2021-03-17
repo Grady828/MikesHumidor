@@ -6,13 +6,19 @@ import { useParams, useHistory } from 'react-router-dom'
 export function NewCigar() {
   const [newCigar, setNewCigar] = useState({
     name: '',
-    size: '',
+    length: '',
+    gauge: '',
+    wrapper: '',
+    binder: '',
+    filler: '',
     price: '',
     inStock: '',
-    // dateBought: '',
     strength: '',
     notes: '',
+    brand: '',
   })
+
+  const [newBrand, setNewBrand] = useState()
 
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -69,10 +75,46 @@ export function NewCigar() {
         <p className="form-input">
           <label htmlFor="size"></label>
           <input
-            placeholder="Size"
-            name="size"
-            value={newCigar.size}
+            placeholder="Length"
+            name="length"
+            value={newCigar.length}
             onChange={handleIntFieldChange}
+          ></input>
+        </p>
+        <p className="form-input">
+          <label htmlFor="gauge"></label>
+          <input
+            placeholder="Gauge"
+            name="gauge"
+            value={newCigar.gauge}
+            onChange={handleIntFieldChange}
+          ></input>
+        </p>
+        <p className="form-input">
+          <label htmlFor="wrapper"></label>
+          <input
+            placeholder="Wrapper"
+            name="wrapper"
+            value={newCigar.wrapper}
+            onChange={handleStringFieldChange}
+          ></input>
+        </p>
+        <p className="form-input">
+          <label htmlFor="Binder"></label>
+          <input
+            placeholder="Binder"
+            name="binder"
+            value={newCigar.binder}
+            onChange={handleStringFieldChange}
+          ></input>
+        </p>
+        <p className="form-input">
+          <label htmlFor="Filler"></label>
+          <input
+            placeholder="Filler"
+            name="filler"
+            value={newCigar.filler}
+            onChange={handleStringFieldChange}
           ></input>
         </p>
         <p className="form-input">
@@ -103,7 +145,7 @@ export function NewCigar() {
             onChange={handleStringFieldChange}
           ></input>
         </p>
-        {/* <p className="form-input">
+        <p className="form-input">
           <label htmlFor="Brand"></label>
           <input
             placeholder="Brand"
@@ -111,7 +153,7 @@ export function NewCigar() {
             value={newCigar.brand.brandName}
             onChange={handleStringFieldChange}
           ></input>
-        </p> */}
+        </p>
         <p>
           <input className="submit-button" type="submit" value="Submit" />
         </p>
