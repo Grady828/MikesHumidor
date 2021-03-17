@@ -15,7 +15,7 @@ export function NewCigar() {
   })
 
   function handleStringFieldChange(event) {
-    const value = event.target.value
+    const value = event.target.value || 0
     const fieldName = event.target.name
 
     const updatedCigar = { ...newCigar, [fieldName]: value }
@@ -23,7 +23,7 @@ export function NewCigar() {
     setNewCigar(updatedCigar)
   }
   function handleIntFieldChange(event) {
-    const value = Number(event.target.value)
+    const value = Number(event.target.value) || 0
     const fieldName = event.target.name
 
     const updatedCigar = { ...newCigar, [fieldName]: value }

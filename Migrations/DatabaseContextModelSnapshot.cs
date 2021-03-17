@@ -19,6 +19,29 @@ namespace MikesHumidor.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
+            modelBuilder.Entity("MikesHumidor.Models.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("BrandName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("CigarId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CigarId");
+
+                    b.ToTable("Brands");
+                });
+
             modelBuilder.Entity("MikesHumidor.Models.Cigar", b =>
                 {
                     b.Property<int>("Id")
@@ -50,6 +73,20 @@ namespace MikesHumidor.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cigars");
+                });
+
+            modelBuilder.Entity("MikesHumidor.Models.Brand", b =>
+                {
+                    b.HasOne("MikesHumidor.Models.Cigar", null)
+                        .WithMany("Brands")
+                        .HasForeignKey("CigarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MikesHumidor.Models.Cigar", b =>
+                {
+                    b.Navigation("Brands");
                 });
 #pragma warning restore 612, 618
         }

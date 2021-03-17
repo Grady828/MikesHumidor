@@ -32,10 +32,13 @@ namespace MikesHumidor.Controllers
         //
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cigar>>> GetCigars()
+
         {
+            // Find the restaurant in the database using Include to ensure we have the associated reviews
+
             // Uses the database context in `_context` to request all of the Cigars, sort
             // them by row id and return them as a JSON array.
-            return await _context.Cigars.OrderBy(row => row.Id).ToListAsync();
+            return await _context.Cigars.Include(cigar => cigar.Brands).OrderBy(row => row.Id).ToListAsync();
         }
 
         // GET: api/Cigars/5
@@ -44,17 +47,20 @@ namespace MikesHumidor.Controllers
         // URL. In the sample URL above it is the `5`.  The "{id}" in the [HttpGet("{id}")] is what tells dotnet
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
+
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Cigar>> GetCigar(int id)
         {
             // Find the cigar in the database using `FindAsync` to look it up by id
-            var cigar = await _context.Cigars.FindAsync(id);
+            // var cigar = await _context.Cigars.FindAsync(id);
+            var cigar = await _context.Cigars.Include(cigar => cigar.Brands).Where(cigar => cigar.Id == id).FirstOrDefaultAsync();
 
             // If we didn't find anything, we receive a `null` in return
             if (cigar == null)
             {
                 // Return a `404` response to the client indicating we could not find a cigar with this id
-                return NotFound();
+                return NotFound("Cigar is not found.");
             }
 
             //  Return the cigar as a JSON object.

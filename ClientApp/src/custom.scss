@@ -236,15 +236,24 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.form-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-input input {
   background: none;
   border-radius: 10px;
+  color: #f2efec;
 }
 .form-input textarea {
   background: none;
   border-radius: 10px;
   flex-direction: column;
   justify-content: space-around;
+  color: #f2efec;
 }
 .submit-button {
   display: flex;

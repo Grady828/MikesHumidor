@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MikesHumidor.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210312145846_RemoveBrandId")]
-    partial class RemoveBrandId
+    [Migration("20210316224839_initialdbcreation")]
+    partial class initialdbcreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,29 @@ namespace MikesHumidor.Migrations
                 .UseIdentityByDefaultColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.1");
+
+            modelBuilder.Entity("MikesHumidor.Models.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<string>("BrandName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("CigarId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CigarId");
+
+                    b.ToTable("Brands");
+                });
 
             modelBuilder.Entity("MikesHumidor.Models.Cigar", b =>
                 {
@@ -52,6 +75,20 @@ namespace MikesHumidor.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cigars");
+                });
+
+            modelBuilder.Entity("MikesHumidor.Models.Brand", b =>
+                {
+                    b.HasOne("MikesHumidor.Models.Cigar", null)
+                        .WithMany("Brands")
+                        .HasForeignKey("CigarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MikesHumidor.Models.Cigar", b =>
+                {
+                    b.Navigation("Brands");
                 });
 #pragma warning restore 612, 618
         }

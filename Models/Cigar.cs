@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace MikesHumidor.Models
 {
@@ -12,7 +13,8 @@ namespace MikesHumidor.Models
         public DateTime DateBought { get; set; } = DateTime.Now;
         public string Strength { get; set; }
         public string Notes { get; set; }
-        // public int BrandId { get;set; }
+        public List<Brand> Brands { get; set; }
+        
 
     }
 }

@@ -13,7 +13,9 @@ namespace MikesHumidor.Models
         // Change this to true if you want to have logging of SQL statements in development
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
-        public DbSet<Cigar> Cigars { get;set; }
+        public DbSet<Cigar> Cigars { get; set; }
+        // Tell the context about the Review collection/table
+        public DbSet<Brand> Brands { get; set; }
 
         // Add database tables here
 

@@ -13,6 +13,7 @@ export function Cigar() {
     dateBought: '',
     strength: '',
     notes: '',
+    brands: [],
   })
 
   const history = useHistory()
