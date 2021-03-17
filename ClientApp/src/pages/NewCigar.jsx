@@ -15,7 +15,7 @@ export function NewCigar() {
   })
 
   function handleStringFieldChange(event) {
-    const value = event.target.value || 0
+    const value = event.target.value
     const fieldName = event.target.name
 
     const updatedCigar = { ...newCigar, [fieldName]: value }
@@ -47,8 +47,9 @@ export function NewCigar() {
       </p>
       <form className="new-cigar" action="#" onSubmit={handleFormSubmit}>
         <p className="form-input">
-          <label htmlFor="name">Name</label>
+          {/* <label htmlFor="name"></label> */}
           <input
+            placeholder="Name"
             type="text"
             name="name"
             value={newCigar.name}
@@ -56,58 +57,63 @@ export function NewCigar() {
           />
         </p>
         <p className="form-input">
-          <label htmlFor="notes">Cigar Notes</label>
-          <textarea
+          <label htmlFor="notes"></label>
+          <input
+            placeholder="Cigar Notes"
             name="notes"
             value={newCigar.notes}
             onChange={handleStringFieldChange}
-          ></textarea>
+          ></input>
           <span className="note"></span>
         </p>
         <p className="form-input">
-          <label htmlFor="size">Size</label>
-          <textarea
+          <label htmlFor="size"></label>
+          <input
+            placeholder="Size"
             name="size"
             value={newCigar.size}
             onChange={handleIntFieldChange}
-          ></textarea>
+          ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="price">Price</label>
-          <textarea
+          <label htmlFor="price"></label>
+          <input
+            placeholder="Price"
             name="price"
             value={newCigar.price}
             onChange={handleIntFieldChange}
-          ></textarea>
+          ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="inStock">InStock</label>
-          <textarea
+          <label htmlFor="inStock"></label>
+          <input
+            placeholder="Stock"
             name="inStock"
             value={newCigar.inStock}
             onChange={handleIntFieldChange}
-          ></textarea>
+          ></input>
         </p>
-        {/* <p className="form-input">
-          <label htmlFor="dateBought">Date Cigar Was Bought</label>
-          <textarea
-            name="dateBought"
-            value={newCigar.dateBought}
-            onChange={handleStringFieldChange}
-          ></textarea>
-        </p> */}
+
         <p className="form-input">
-          <label htmlFor="strength">Strength</label>
-          <textarea
+          <label htmlFor="strength"></label>
+          <input
+            placeholder="Strength"
             name="strength"
             value={newCigar.strength}
             onChange={handleStringFieldChange}
-          ></textarea>
+          ></input>
         </p>
+        {/* <p className="form-input">
+          <label htmlFor="Brand"></label>
+          <input
+            placeholder="Brand"
+            name="Brand"
+            value={newCigar.brand.brandName}
+            onChange={handleStringFieldChange}
+          ></input>
+        </p> */}
         <p>
-          <div>
-            <input className="submit-button" type="submit" value="Submit" />
-          </div>
+          <input className="submit-button" type="submit" value="Submit" />
         </p>
       </form>
     </>
