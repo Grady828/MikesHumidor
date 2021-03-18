@@ -27,9 +27,11 @@ export function Header() {
               <li> Add A Cigar</li>
             </Link>
             <a href="#">
-              <li>Brands</li>
+              <Link to="/Brands" onClick={() => setOpenSesame(false)}>
+                <li>Brands</li>
+              </Link>
             </a>
-            <p className="form-input">
+            <li className="form-input">
               <input
                 type="text"
                 placeholder="Search Cigars"
@@ -38,7 +40,7 @@ export function Header() {
                   setFilterText(event.target.value)
                 }}
               />
-            </p>
+            </li>
             <a href="#">
               <li>Sign In</li>
             </a>

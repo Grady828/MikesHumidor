@@ -8,6 +8,7 @@ import { SignUp } from './pages/SignUp'
 import axios from 'axios'
 import { Route, Switch, useHistory, useParams } from 'react-router-dom'
 import { Header } from './components/Header'
+import { Brands } from './pages/Brands'
 
 export function App() {
   return (
@@ -23,6 +24,9 @@ export function App() {
           </Route>
           <Route path="/newCigar">
             <NewCigar />
+          </Route>
+          <Route exact path="/Brands">
+            <Brands />
           </Route>
           <Route path="*">Not Found</Route>
         </Switch>
