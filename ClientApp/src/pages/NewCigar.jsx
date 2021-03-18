@@ -63,7 +63,6 @@ export function NewCigar() {
           />
         </p>
         <p className="form-input">
-          <label htmlFor="notes"></label>
           <input
             placeholder="Cigar Notes"
             name="notes"
@@ -73,7 +72,6 @@ export function NewCigar() {
           <span className="note"></span>
         </p>
         <p className="form-input">
-          <label htmlFor="size"></label>
           <input
             placeholder="Length"
             name="length"
@@ -82,7 +80,6 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="gauge"></label>
           <input
             placeholder="Gauge"
             name="gauge"
@@ -91,7 +88,6 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="wrapper"></label>
           <input
             placeholder="Wrapper"
             name="wrapper"
@@ -100,7 +96,6 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="Binder"></label>
           <input
             placeholder="Binder"
             name="binder"
@@ -109,7 +104,6 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="Filler"></label>
           <input
             placeholder="Filler"
             name="filler"
@@ -118,7 +112,6 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="price"></label>
           <input
             placeholder="Price"
             name="price"
@@ -127,7 +120,6 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="inStock"></label>
           <input
             placeholder="Stock"
             name="inStock"
@@ -137,7 +129,6 @@ export function NewCigar() {
         </p>
 
         <p className="form-input">
-          <label htmlFor="strength"></label>
           <input
             placeholder="Strength"
             name="strength"
@@ -146,13 +137,17 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <label htmlFor="Brand"></label>
-          <input
+          <select>
+            <option>-Brands-</option>
+            <option>Montecristo</option>
+            <option>Cohiba</option>
+          </select>
+          {/* <input
             placeholder="Brand"
             name="Brand"
             value={newCigar.brand.brandName}
             onChange={handleStringFieldChange}
-          ></input>
+          ></input> */}
         </p>
         <p>
           <input className="submit-button" type="submit" value="Submit" />

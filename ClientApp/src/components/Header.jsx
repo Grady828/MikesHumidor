@@ -29,9 +29,16 @@ export function Header() {
             <a href="#">
               <li>Brands</li>
             </a>
-            <a href="#">
-              <li>Search</li>
-            </a>
+            <p className="form-input">
+              <input
+                type="text"
+                placeholder="Search Cigars"
+                value={filterText}
+                onChange={function (event) {
+                  setFilterText(event.target.value)
+                }}
+              />
+            </p>
             <a href="#">
               <li>Sign In</li>
             </a>

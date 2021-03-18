@@ -34,11 +34,19 @@ namespace MikesHumidor.Controllers
         public async Task<ActionResult<IEnumerable<Cigar>>> GetCigars(string filter)
 
         {
-            // Find the cigar in the database using Include to ensure we have the associated reviews
-            
+            if (filter==null)// Find the cigar in the database using Include to ensure we have the associated reviews
+            {
             // Uses the database context in `_context` to request all of the Cigars, sort
             // them by row id and return them as a JSON array.
             return await _context.Cigars.Include(cigar => cigar.Brand).OrderBy(row => row.Id).ToListAsync();
+            } else
+             {
+                return await _context.
+                Cigars.
+                Where(Cigar =>Cigar.Name.ToLower().Contains(filter.ToLower())).
+                OrderBy(row=> row.Id).
+                ToListAsync();
+            }
         }
 
         // GET: api/Cigars/5
