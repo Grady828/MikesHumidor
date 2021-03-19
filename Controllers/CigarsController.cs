@@ -34,18 +34,25 @@ namespace MikesHumidor.Controllers
         public async Task<ActionResult<IEnumerable<Cigar>>> GetCigars(string filter)
 
         {
-            if (filter==null)// Find the cigar in the database using Include to ensure we have the associated reviews
+            if (filter == null)// Find the cigar in the database using Include to ensure we have the associated reviews
             {
-            // Uses the database context in `_context` to request all of the Cigars, sort
-            // them by row id and return them as a JSON array.
-            return await _context.Cigars.Include(cigar => cigar.Brand).OrderBy(row => row.Id).ToListAsync();
-            } else
-             {
-                return await _context.
-                Cigars.
-                Where(Cigar =>Cigar.Name.ToLower().Contains(filter.ToLower())).
-                OrderBy(row=> row.Id).
-                ToListAsync();
+
+                // Uses the database context in `_context` to request all of the Cigars, sort
+                // them by row id and return them as a JSON array.
+                return await _context.Cigars.Include(cigar => cigar.Brand).OrderBy(row => row.Id).ToListAsync();
+            }
+            else
+            {
+                var matchingCigars = await _context.Cigars.
+                                                Include(cigars => cigars.Brand).
+                                                Join(_context.Brands,
+                                                            cigar => cigar.BrandId,
+                                                            brand => brand.Id,
+                                                            (cigar, brand) => new { cigar = cigar, brand = brand }).
+                                                Where(cigarAndBrand => cigarAndBrand.cigar.Name.ToLower().Contains(filter.ToLower())
+                                                            || cigarAndBrand.brand.BrandName.ToLower().Contains(filter.ToLower())).
+                                                Select(cigarAndDiet => cigarAndDiet.cigar).ToListAsync();
+                return matchingCigars;
             }
         }
 
@@ -56,7 +63,7 @@ namespace MikesHumidor.Controllers
         // to grab the id from the URL. It is then made available to us as the `id` argument to the method.
         //
 
-        
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Cigar>> GetCigar(int id)
         {
