@@ -4,12 +4,26 @@ import { Link } from 'react-router-dom'
 
 export function Cigars() {
   const [cigars, setCigars] = useState([])
-  const [newCigar, setNewCigar] = useState()
+  // const [newCigar, setNewCigar] = useState()
+  const [filterText, setFilterText] = useState('')
 
   useEffect(async () => {
     const response = await axios.get('/api/Cigars')
     setCigars(response.data)
   }, [])
+
+  useEffect(() => {
+    async function fetchCigars() {
+      const url =
+        filterText.length === 0
+          ? '/api/Cigars'
+          : `/api/Cigars?filter=${filterText}`
+      const response = await fetch(url)
+      const json = await response.json()
+      setCigars(json)
+    }
+    fetchCigars()
+  }, [filterText])
 
   // async function handleNewCigar(event) {
   //   event.preventDefault()
@@ -26,6 +40,14 @@ export function Cigars() {
   return (
     <>
       <h3>Inventory</h3>
+      <input
+        type="text"
+        placeholder="Search Cigars"
+        value={filterText}
+        onChange={function (event) {
+          setFilterText(event.target.value)
+        }}
+      />
       <ul>
         {cigars.map((cigarDetails) => {
           return (

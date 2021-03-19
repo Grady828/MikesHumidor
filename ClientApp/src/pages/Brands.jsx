@@ -4,7 +4,7 @@ import axios from 'axios'
 export function Brands() {
   const [brandsInfo, setBrandsInfo] = useState([])
   const [newBrand, setNewBrand] = useState({
-    name: '',
+    brandName: '',
     description: '',
   })
 
@@ -16,10 +16,19 @@ export function Brands() {
 
   return (
     <>
-      <div className="brands-info">
-        <p>Brand Name: {brandsInfo.name}</p>
-        <p>Description: {brandsInfo.description}</p>
-      </div>
+      <h2>Brands</h2>
+      <ul>
+        {brandsInfo.map((brandDetails) => {
+          return (
+            <li key={brandDetails.id}>
+              Name:{brandDetails.brandName}
+              <p />
+              Description:{brandDetails.description}
+              <hr />
+            </li>
+          )
+        })}
+      </ul>
     </>
   )
 }
