@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { useParams, useHistory } from 'react-router-dom'
-// import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export function NewCigar() {
   const [newCigar, setNewCigar] = useState({
@@ -41,7 +40,7 @@ export function NewCigar() {
 
   async function handleFormSubmit(event) {
     event.preventDefault()
-    const response = await axios.post('/api/Cigars', newCigar)
+    await axios.post('/api/Cigars', newCigar)
 
     history.push('/')
   }

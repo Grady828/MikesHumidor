@@ -26,11 +26,9 @@ export function Header() {
             <Link to="/newCigar" onClick={() => setOpenSesame(false)}>
               <li> Add A Cigar</li>
             </Link>
-            <a href="#">
-              <Link to="/Brands" onClick={() => setOpenSesame(false)}>
-                <li>Brands</li>
-              </Link>
-            </a>
+            <Link to="/Brands" onClick={() => setOpenSesame(false)}>
+              <li>Brands</li>
+            </Link>
             <li className="form-input">
               <input
                 type="text"
@@ -41,7 +39,7 @@ export function Header() {
                 }}
               />
             </li>
-            <a href="#">
+            <a href="/signIn">
               <li>Sign In</li>
             </a>
           </ul>

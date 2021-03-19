@@ -8,10 +8,13 @@ export function Brands() {
     description: '',
   })
 
-  useEffect(async function () {
-    const response = await axios.get(`/api/Brands`)
+  useEffect(() => {
+    async function loadBrands() {
+      const response = await axios.get(`/api/Brands`)
 
-    setBrandsInfo(response.data)
+      setBrandsInfo(response.data)
+    }
+    loadBrands()
   }, [])
 
   return (

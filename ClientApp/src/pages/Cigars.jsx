@@ -7,9 +7,12 @@ export function Cigars() {
   // const [newCigar, setNewCigar] = useState()
   const [filterText, setFilterText] = useState('')
 
-  useEffect(async () => {
-    const response = await axios.get('/api/Cigars')
-    setCigars(response.data)
+  useEffect(() => {
+    async function fetchCigars() {
+      const response = await axios.get('/api/Cigars')
+      setCigars(response.data)
+    }
+    fetchCigars()
   }, [])
 
   useEffect(() => {

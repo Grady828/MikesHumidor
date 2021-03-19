@@ -23,21 +23,24 @@ export function Cigar() {
   const history = useHistory()
   const { id } = useParams()
 
-  useEffect(async function () {
-    const response = await axios.get(`/api/Cigars/${id}`)
+  useEffect(() => {
+    async function fetchCigar() {
+      const response = await axios.get(`/api/Cigars/${id}`)
 
-    setCigarInfo(response.data)
-    setInitialInStock(response.data.inStock)
-  }, [])
+      setCigarInfo(response.data)
+      setInitialInStock(response.data.inStock)
+    }
+    fetchCigar()
+  }, [id])
 
   async function deleteCigar() {
-    const response = await axios.delete(`/api/Cigars/${id}`)
+    await axios.delete(`/api/Cigars/${id}`)
 
     history.push('/')
   }
 
   async function updateInStock() {
-    const response = await axios({
+    await axios({
       url: `/api/Cigars/${id}`,
       method: 'PUT',
       data: cigarInfo,
@@ -50,7 +53,7 @@ export function Cigar() {
 
   async function updateRemoveOne() {
     const removedOneCigar = { ...cigarInfo, inStock: initialInStock - 1 }
-    const response = await axios({
+    await axios({
       url: `/api/Cigars/${id}`,
       method: 'PUT',
       data: removedOneCigar,
