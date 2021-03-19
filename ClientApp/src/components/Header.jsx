@@ -15,7 +15,7 @@ export function Header() {
           <input
             type="checkbox"
             checked={openSesame}
-            onClick={() => setOpenSesame(!openSesame)}
+            onChange={() => setOpenSesame(!openSesame)}
           />
 
           <span></span>

@@ -47,9 +47,7 @@ export function NewCigar() {
 
   return (
     <>
-      <p>
-        <h2>Add A Cigar</h2>
-      </p>
+      <h2>Add A Cigar</h2>
       <form className="new-cigar" action="#" onSubmit={handleFormSubmit}>
         <p className="form-input">
           {/* <label htmlFor="name"></label> */}
