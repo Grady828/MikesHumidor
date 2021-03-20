@@ -65,6 +65,7 @@ export function Cigar() {
     <>
       <div className="cigar-info">
         <p>Name: {cigarInfo.name}</p>
+
         <p>Length:{cigarInfo.length}"</p>
         <p>Gauge:{cigarInfo.gauge}</p>
         <p>Wrapper:{cigarInfo.wrapper}</p>

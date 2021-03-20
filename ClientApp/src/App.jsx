@@ -19,7 +19,7 @@ export function App() {
           <Route exact path="/Cigars/:id">
             <Cigar />
           </Route>
-          <Route path="/newCigar">
+          <Route path="/NewCigar">
             <NewCigar />
           </Route>
           <Route exact path="/Brands">

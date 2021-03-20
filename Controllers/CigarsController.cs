@@ -42,7 +42,7 @@ namespace MikesHumidor.Controllers
                                                         (cigar, brand) => new { cigar = cigar, brand = brand }).
                                             Where(cigarAndBrand => (filter == null || cigarAndBrand.cigar.Name.ToLower().Contains(filter.ToLower()))
                                                         || (filter == null || cigarAndBrand.brand.BrandName.ToLower().Contains(filter.ToLower()))).
-                                            Select(cigarAndDiet => cigarAndDiet.cigar).ToListAsync();
+                                            Select(cigarAndBrand => cigarAndBrand.cigar).ToListAsync();
             return matchingCigars;
         }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
@@ -14,10 +14,23 @@ export function NewCigar() {
     inStock: '',
     strength: '',
     notes: '',
-    brand: '',
+    brandId: '',
   })
 
-  const [newBrand, setNewBrand] = useState()
+  const [brandsInfo, setBrandsInfo] = useState([])
+  const [selectedBrand, setSelectedBrand] = useState({
+    brandName: '',
+    description: '',
+  })
+
+  useEffect(() => {
+    async function loadBrands() {
+      const response = await axios.get(`/api/Brands`)
+
+      setBrandsInfo(response.data)
+    }
+    loadBrands()
+  }, [])
 
   function handleStringFieldChange(event) {
     const value = event.target.value
@@ -27,6 +40,7 @@ export function NewCigar() {
 
     setNewCigar(updatedCigar)
   }
+
   function handleIntFieldChange(event) {
     const value = Number(event.target.value) || 0
     const fieldName = event.target.name
@@ -41,7 +55,7 @@ export function NewCigar() {
   async function handleFormSubmit(event) {
     event.preventDefault()
     await axios.post('/api/Cigars', newCigar)
-
+    // await axios.post('/api/Brands', selectedBrand)
     history.push('/')
   }
 
@@ -134,10 +148,22 @@ export function NewCigar() {
           ></input>
         </p>
         <p className="form-input">
-          <select>
-            <option>-Brands-</option>
-            <option>Montecristo</option>
-            <option>Cohiba</option>
+          <select
+            value={selectedBrand}
+            name="brandId"
+            onChange={handleIntFieldChange}
+            // onChange={function (event) {
+            //   setSelectedBrand(Number(event.target.value))
+            // }}
+          >
+            <option value="">Brands</option>
+            {brandsInfo.map((brandDetails) => {
+              return (
+                <option key={brandDetails.id} value={brandDetails.id}>
+                  {brandDetails.brandName}
+                </option>
+              )
+            })}
           </select>
           {/* <input
             placeholder="Brand"

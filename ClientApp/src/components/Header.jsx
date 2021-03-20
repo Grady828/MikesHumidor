@@ -29,16 +29,6 @@ export function Header() {
             <Link to="/Brands" onClick={() => setOpenSesame(false)}>
               <li>Brands</li>
             </Link>
-            <li className="form-input">
-              <input
-                type="text"
-                placeholder="Search Cigars"
-                value={filterText}
-                onChange={function (event) {
-                  setFilterText(event.target.value)
-                }}
-              />
-            </li>
             <a href="/signIn">
               <li>Sign In</li>
             </a>
