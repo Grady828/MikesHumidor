@@ -25,18 +25,18 @@ namespace MikesHumidor.Controllers
         // and stores it in _context for you to use in your API methods
         public UploadsController(IConfiguration config)
         {
-            CLOUDINARY_CLOUD_NAME = config["dfo6idbnz"];
-            CLOUDINARY_API_KEY = config["286748391992597"];
-            CLOUDINARY_API_SECRET = config["Zok56Exen-EddGTlpEL9_HMG4tM"];
+            CLOUDINARY_CLOUD_NAME = config["CLOUDINARY_CLOUD_NAME"];
+            CLOUDINARY_API_KEY = config["CLOUDINARY_API_KEY"];
+            CLOUDINARY_API_SECRET = config["CLOUDINARY_API_SECRET"];
         }
         private readonly HashSet<string> VALID_CONTENT_TYPES = new HashSet<string> {
-    "image/jpg",
-    "image/jpeg",
-    "image/pjpeg",
-    "image/gif",
-    "image/x-png",
-    "image/png",
-};
+            "image/jpg",
+            "image/jpeg",
+            "image/pjpeg",
+            "image/gif",
+            "image/x-png",
+            "image/png",
+        };
 
         // POST: api/Uploads
         //
@@ -48,7 +48,7 @@ namespace MikesHumidor.Controllers
         // new values for the record.
         //
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [RequestSizeLimit(10_000_000)]
         public async System.Threading.Tasks.Task<ActionResult> UploadAsync(IFormFile file)
         {
