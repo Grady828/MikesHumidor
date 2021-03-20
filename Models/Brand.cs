@@ -9,9 +9,11 @@ namespace MikesHumidor.Models
         public int Id { get; set; }
         public string BrandName { get; set; }
         public string Description { get; set; }
-        
-    //    public List<Cigar> Cigars {get;set;}
-        
-        
+        public string PhotoURL { get; set; }
+
+
+        //    public List<Cigar> Cigars {get;set;}
+
+
     }
 }

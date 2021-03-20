@@ -1,5 +1,10 @@
+using System.Collections.Generic;
+using System.Net;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -20,10 +25,18 @@ namespace MikesHumidor.Controllers
         // and stores it in _context for you to use in your API methods
         public UploadsController(IConfiguration config)
         {
-            CLOUDINARY_CLOUD_NAME = config["CLOUDINARY_CLOUD_NAME"];
-            CLOUDINARY_API_KEY = config["CLOUDINARY_API_KEY"];
-            CLOUDINARY_API_SECRET = config["CLOUDINARY_API_SECRET"];
+            CLOUDINARY_CLOUD_NAME = config["dfo6idbnz"];
+            CLOUDINARY_API_KEY = config["286748391992597"];
+            CLOUDINARY_API_SECRET = config["Zok56Exen-EddGTlpEL9_HMG4tM"];
         }
+        private readonly HashSet<string> VALID_CONTENT_TYPES = new HashSet<string> {
+    "image/jpg",
+    "image/jpeg",
+    "image/pjpeg",
+    "image/gif",
+    "image/x-png",
+    "image/png",
+};
 
         // POST: api/Uploads
         //
@@ -37,8 +50,41 @@ namespace MikesHumidor.Controllers
         [HttpPost]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [RequestSizeLimit(10_000_000)]
-        public ActionResult Upload()
+        public async System.Threading.Tasks.Task<ActionResult> UploadAsync(IFormFile file)
         {
+            // Check this content type against a set of allowed content types
+            var contentType = file.ContentType.ToLower();
+            if (!VALID_CONTENT_TYPES.Contains(contentType))
+            {
+                // Return a 400 Bad Request when the content type is not allowed
+                return BadRequest("Not Valid Image");
+            }
+            // Create and configure a client object to be able to upload to Cloudinary
+            var cloudinaryClient = new Cloudinary(new Account(CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET));
+
+            // Create an object describing the upload we are going to process.
+            // We will provide the file name and the stream of the content itself.
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(file.FileName, file.OpenReadStream())
+            };
+
+            // Upload the file to the server
+            ImageUploadResult result = await cloudinaryClient.UploadLargeAsync(uploadParams);
+
+            // If the status code is a "OK" then the upload was accepted so we will return
+            // the URL to the client
+            if (result.StatusCode == HttpStatusCode.OK)
+            {
+                var urlOfUploadedFile = result.SecureUrl.AbsoluteUri;
+
+                return Ok(new { url = urlOfUploadedFile });
+            }
+            else
+            {
+                // Otherwise there was some failure in uploading
+                return BadRequest("Upload failed");
+            }
             return Ok();
         }
     }
