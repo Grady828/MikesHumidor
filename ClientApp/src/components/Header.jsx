@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export function Header() {
   const [openSesame, setOpenSesame] = useState(false)
-  const [filterText, setFilterText] = useState('')
+  // const [filterText, setFilterText] = useState('')
 
   return (
     <header>

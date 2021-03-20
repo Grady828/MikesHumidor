@@ -18,7 +18,7 @@ export function NewCigar() {
   })
 
   const [brandsInfo, setBrandsInfo] = useState([])
-  const [selectedBrand, setSelectedBrand] = useState({
+  const [selectedBrand] = useState({
     brandName: '',
     description: '',
   })
