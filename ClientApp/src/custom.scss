@@ -284,5 +284,14 @@ option {
 }
 .brand-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+.file-drop-zone {
+  justify-content: center;
+  border: 1px solid #f2efec;
+  color: #f2efec;
+  border-radius: 25px;
+  padding: 2em;
 }

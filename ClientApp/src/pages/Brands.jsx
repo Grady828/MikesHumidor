@@ -8,6 +8,7 @@ export function Brands() {
   const [newBrand, setNewBrand] = useState({
     brandName: '',
     description: '',
+    photoURL:'',
   })
 
   useEffect(() => {
@@ -24,9 +25,9 @@ export function Brands() {
   async function handleNewBrand(event) {
     event.preventDefault()
     await axios.post('/api/Brands', newBrand)
-    // await axios.post('/api/Brands', selectedBrand)
     history.push('/NewCigar')
   }
+
   function handleStringField(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -35,6 +36,54 @@ export function Brands() {
 
     setNewBrand(updatedBrand)
   }
+
+    async function onDropFile(acceptedFiles) {
+      // Do something with the files
+      const fileToUpload = acceptedFiles[0]
+      console.log(fileToUpload)
+
+      // Create a formData object so we can send this
+      // to the API that is expecting som form data.
+      const formData = new FormData()
+
+      // Append a field that is the form upload itself
+      formData.append('file', fileToUpload)
+
+      try {
+        // Use fetch to send an authorization header and
+        // a body containing the form data with the file
+        const response = await fetch('/api/Uploads', {
+          method: 'POST',
+          headers: {
+            ...authHeader(),
+          },
+          body: formData,
+        })
+
+        // If we receive a 200 OK response, set the
+        // URL of the photo in our state so that it is
+        // sent along when creating the restaurant,
+        // otherwise show an error
+        if (response.status === 200) {
+          const apiResponse = await response.json()
+
+          const url = apiResponse.url
+
+          setNewBrand({ ...newBrand, photoURL: url })
+        } else {
+          setErrorMessage('Unable to upload image')
+        }
+      } catch {
+        // Catch any network errors and show the user we could not process their upload
+        
+        setErrorMessage('Unable to upload image')
+      }
+    }
+  }
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: onDropFile,
+  })
 
   return (
     <>
@@ -53,20 +102,36 @@ export function Brands() {
       </ul>
       <h3>New Brand</h3>
       <form className="brand-form" onSubmit={handleNewBrand}>
-        <input
-          type="text"
-          placeholder="Brand Name"
-          name="brandName"
-          value={newBrand.brandName}
-          onChange={handleStringField}
-        />
-        <input
-          type="text"
-          placeholder="Description"
-          name="description"
-          value={newBrand.description}
-          onChange={handleStringField}
-        />
+        <p>
+          <input
+            className="brandInput"
+            type="text"
+            placeholder="Brand Name"
+            name="brandName"
+            value={newBrand.brandName}
+            onChange={handleStringField}
+          />
+        </p>
+        <p>
+          <input
+            className="brandInput"
+            type="text"
+            placeholder="Description"
+            name="description"
+            value={newBrand.description}
+            onChange={handleStringField}
+          />
+        </p>
+        <p>
+          <div className="file-drop-zone">
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              {isDragActive
+                ? 'Drop the files here ...'
+                : 'Drag a picture here!'}
+            </div>
+          </div>
+        </p>
         <input className="submit-button" type="submit" value="Submit" />
       </form>
     </>
