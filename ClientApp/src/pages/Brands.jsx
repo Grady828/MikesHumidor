@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import { useDropzone } from 'react-dropzone'
 
 export function Brands() {
   const [brandsInfo, setBrandsInfo] = useState([])
