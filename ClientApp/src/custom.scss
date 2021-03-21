@@ -5,14 +5,14 @@ th:root {
 html {
   height: 100vh;
   width: 100vw;
+  background-color: #1a191a;
 }
 
 body {
   padding: 0;
   margin: 0 auto;
   min-height: 100%;
-  background-image: url(images/back.jpg);
-  background-size: cover;
+
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
 
   // background-attachment: fixed;
@@ -20,28 +20,12 @@ body {
   color: #f2efec;
 }
 
-// .cigars-page {
-//   background-image: url(images/back.jpg);
-// }
-
-// .cigar-page {
-//   background-image: url(images/back.jpg);
-// }
-
-// .new-cigar {
-//   background-image: url(images/addcigar.jpg);
-// }
-
-// .brands-page {
-//   background-image: url(images/back.jpg);
-// }
-
 @media (min-width: 500px) {
   body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
-    background-color: #2e231d;
+    background-color: #1a191a;
   }
 }
 
@@ -61,17 +45,134 @@ header {
 main {
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
+
   ul li {
     list-style: none;
     margin-right: 3rem;
     margin-top: 0.5rem;
+    :hover {
+      color: tomato;
+    }
   }
   ul {
     // border: 1px solid #f2efec;
     border-radius: 10px;
   }
+}
+
+button {
+  border: 1px solid #f2efec;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  .button:hover {
+    color: tomato;
+  }
+
+  color: #f2efec;
+  // font-family: 'Abril Fatface', cursive;
+  font-size: smaller;
+  .button:active {
+    padding: 8px;
+  }
+}
+
+input {
+  color: white;
+  background: none;
+  border-radius: 8px;
+  text-align: center;
+}
+
+option {
+  background: none;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.cigars-page {
+  background-image: url(images/back.jpg);
+  background-size: cover;
+
+  h2 {
+    text-align: center;
+  }
+
+  .search-cigars {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.cigar-info-page {
+  background-image: url(images/back.jpg);
+  background-size: cover;
+  margin: 0;
+
+  .cigar-info {
+    font-family: 'messinaMono', 'Courier New', Courier, monospace;
+    font-size: large;
+    color: #f2efec;
+  }
+}
+
+.new-cigar-page {
+  background-image: url(images/addcigar.jpg);
+  background-size: cover;
+  border: 1px solid white;
+
+  .new-cigar-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  h2 {
+    text-align: center;
+  }
+  .select-option {
+    background-color: #f2efec;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .submit-button {
+    margin-top: 5px;
+    margin-right: 2rem;
+    margin-left: 20px;
+    background-color: #f2efec;
+    color: black;
+    text-align: center;
+  }
+  .submit-button:active {
+    padding: 6px;
+  }
+}
+
+.brands-page {
+  background-image: url(images/back.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .brand-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.file-drop-zone {
+  justify-content: center;
+  border: 1px solid #f2efec;
+  color: #f2efec;
+  border-radius: 25px;
+  padding: 2em;
 }
 
 #menuToggle {
@@ -212,86 +313,4 @@ a:focus,
 a:hover,
 a:active {
   color: #f2efec;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  margin-top: 3rem;
-  margin-left: 1rem;
-
-  div {
-    padding: 1rem;
-  }
-}
-
-button {
-  border: 1px solid #f2efec;
-  background: none;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 5px;
-
-  color: #f2efec;
-  // font-family: 'Abril Fatface', cursive;
-  font-size: smaller;
-}
-
-.cigar-info {
-  font-family: 'messinaMono', 'Courier New', Courier, monospace;
-  font-size: large;
-  color: #f2efec;
-}
-
-.new-cigar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-form.new-cigar {
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-// .form-input {
-//   //   display: flex;
-//   //   justify-content: space-evenly;
-
-input {
-  align-items: flex-start;
-  color: #f2efec;
-  background: none;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.submit-button {
-  margin-top: 5px;
-  margin-right: 2rem;
-  margin-left: 34px;
-  background-color: #f2efec;
-  color: black;
-}
-option {
-  background: none;
-  border-radius: 8px;
-  text-align: center;
-}
-.brand-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.file-drop-zone {
-  justify-content: center;
-  border: 1px solid #f2efec;
-  color: #f2efec;
-  border-radius: 25px;
-  padding: 2em;
 }

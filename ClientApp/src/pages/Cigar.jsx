@@ -62,10 +62,9 @@ export function Cigar() {
   }
 
   return (
-    <>
-      <div className="cigar-info">
+    <main className="cigar-info-page">
+      <div>
         <p>Name: {cigarInfo.name}</p>
-
         <p>Length:{cigarInfo.length}"</p>
         <p>Gauge:{cigarInfo.gauge}</p>
         <p>Wrapper:{cigarInfo.wrapper}</p>
@@ -83,10 +82,11 @@ export function Cigar() {
         <p>Strength:{cigarInfo.strength}</p>
         <p>Purchased:{moment(cigarInfo.dateBought).format('MMM Do YYYY')}</p>
         <p>Notes:{cigarInfo.notes}</p>
+
+        <button onClick={deleteCigar}> Delete </button>
+        <button onClick={updateInStock}> Update Quantity</button>
+        <button onClick={updateRemoveOne}> Remove One</button>
       </div>
-      <button onClick={deleteCigar}> Delete </button>
-      <button onClick={updateInStock}> Update Quantity</button>
-      <button onClick={updateRemoveOne}> Remove One</button>
-    </>
+    </main>
   )
 }

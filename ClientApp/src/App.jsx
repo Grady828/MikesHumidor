@@ -11,23 +11,22 @@ export function App() {
   return (
     <>
       <Header />
-      <main>
-        <Switch>
-          <Route exact path="/">
-            <Cigars />
-          </Route>
-          <Route exact path="/Cigars/:id">
-            <Cigar />
-          </Route>
-          <Route path="/NewCigar">
-            <NewCigar />
-          </Route>
-          <Route exact path="/Brands">
-            <Brands />
-          </Route>
-          <Route path="*">Not Found</Route>
-        </Switch>
-      </main>
+      <Switch>
+        <Route exact path="/">
+          <Cigars />
+        </Route>
+        <Route exact path="/Cigars/:id">
+          <Cigar />
+        </Route>
+        <Route path="/NewCigar">
+          <NewCigar />
+        </Route>
+        <Route exact path="/Brands">
+          <Brands />
+        </Route>
+        <Route path="*">Not Found</Route>
+      </Switch>
+
       {/* <footer>
         <p>logo</p>
         <p>Github logo</p>

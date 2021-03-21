@@ -60,9 +60,9 @@ export function NewCigar() {
   }
 
   return (
-    <>
+    <main className="new-cigar-page">
       <h2>Add A Cigar</h2>
-      <form className="new-cigar" action="#" onSubmit={handleFormSubmit}>
+      <form className="new-cigar-form" action="#" onSubmit={handleFormSubmit}>
         <p className="form-input">
           {/* <label htmlFor="name"></label> */}
           <input
@@ -149,6 +149,7 @@ export function NewCigar() {
         </p>
         <p className="form-input">
           <select
+            className="select-option"
             value={selectedBrand}
             name="brandId"
             onChange={handleIntFieldChange}
@@ -176,6 +177,6 @@ export function NewCigar() {
           <input className="submit-button" type="submit" value="Submit" />
         </p>
       </form>
-    </>
+    </main>
   )
 }

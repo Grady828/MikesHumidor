@@ -41,9 +41,10 @@ export function Cigars() {
   // }
 
   return (
-    <>
-      <h3>Inventory</h3>
+    <main className="cigars-page">
+      <h2>Inventory</h2>
       <input
+        className="search-cigars"
         type="text"
         placeholder="Search Cigars"
         value={filterText}
@@ -57,9 +58,6 @@ export function Cigars() {
             <li key={cigarDetails.id}>
               <Link to={`/Cigars/${cigarDetails.id}`}>
                 Name:{cigarDetails.name} Qty:{cigarDetails.inStock} Brand:
-                {/* {cigarDetails.brands.map((brand) => {
-                  return <>{brand.brandName}</>
-                })} */}
                 {cigarDetails.brand.brandName}
               </Link>
               <hr />
@@ -67,16 +65,6 @@ export function Cigars() {
           )
         })}
       </ul>
-      <section>
-        {/* <div>
-          Humidity: <i className="fas fa-plus"></i>71%
-          <i className="fas fa-minus"></i>
-        </div>
-        <div>
-          Temp: <i className="fas fa-plus"></i>68&deg;
-          <i className="fas fa-minus"></i>
-        </div> */}
-      </section>
-    </>
+    </main>
   )
 }

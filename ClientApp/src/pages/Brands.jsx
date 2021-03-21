@@ -20,7 +20,7 @@ export function Brands() {
     }
     loadBrands()
   }, [])
-  const [errorMessage, setErrorMessage] = useState('')
+  const [setErrorMessage] = useState('')
   const history = useHistory()
 
   async function handleNewBrand(event) {
@@ -86,7 +86,7 @@ export function Brands() {
   }
 
   return (
-    <>
+    <main className="brands-page">
       <h2>Brands</h2>
       <ul>
         {brandsInfo.map((brandDetails) => {
@@ -132,7 +132,7 @@ export function Brands() {
         </p>
         {newBrand.photoURL && (
           <p>
-            <img alt="Brand Photo" width={200} src={newBrand.photoURL} />
+            <img alt="brandPhoto" width={200} src={newBrand.photoURL} />
           </p>
         )}
         <p>
@@ -147,6 +147,6 @@ export function Brands() {
         </p>
         <input className="submit-button" type="submit" value="Submit" />
       </form>
-    </>
+    </main>
   )
 }
