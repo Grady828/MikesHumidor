@@ -21,7 +21,25 @@ body {
 }
 
 @media (min-width: 500px) {
-  body {
+  .cigar-info-page {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #1a191a;
+  }
+  .cigars-page {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #1a191a;
+  }
+  .new-cigar-page {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #1a191a;
+  }
+  .brands-page {
     background-size: contain;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -101,7 +119,8 @@ option {
 
 .cigars-page {
   background-image: url(images/back.jpg);
-  background-size: cover;
+  background-size: 50vh, 50vw;
+  background-repeat: no-repeat;
 
   h2 {
     text-align: center;
@@ -123,14 +142,14 @@ option {
 
   .cigar-info {
     font-family: 'messinaMono', 'Courier New', Courier, monospace;
-    font-size: large;
+    font-size: larger;
     color: #f2efec;
   }
 }
 
 .new-cigar-page {
   background-image: url(images/addcigar.jpg);
-  background-size: cover;
+  background-size: 50vh, 50vw;
   border: 1px solid white;
 
   .new-cigar-form {
@@ -150,15 +169,14 @@ option {
     text-align: center;
   }
   .submit-button {
-    margin-top: 5px;
-    margin-right: 2rem;
+    margin-top: 0px;
+    margin-right: 1rem;
     margin-left: 20px;
     background-color: #f2efec;
     color: black;
     text-align: center;
   }
   .submit-button:active {
-    padding: 6px;
   }
 }
 
@@ -169,6 +187,9 @@ option {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h3 {
+    margin: 0;
+  }
 
   .brand-form {
     display: flex;
@@ -177,12 +198,13 @@ option {
     align-items: center;
   }
 }
+
 .file-drop-zone {
   justify-content: center;
   border: 1px solid #f2efec;
   color: #f2efec;
-  border-radius: 25px;
-  padding: 2em;
+  border-radius: 10px;
+  padding: 1em;
 }
 
 #menuToggle {

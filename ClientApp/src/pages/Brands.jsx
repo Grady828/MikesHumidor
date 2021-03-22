@@ -96,6 +96,7 @@ export function Brands() {
               {brandDetails.brandName}
               <p />
               Description:{brandDetails.description}
+              <p />
               {brandDetails.photoURL && (
                 <img
                   alt={brandDetails.brandName}
@@ -135,18 +136,14 @@ export function Brands() {
             <img alt="brandPhoto" width={200} src={newBrand.photoURL} />
           </p>
         )}
-        <p>
-          <div className="file-drop-zone">
-            <div {...getRootProps()}>
-              <input {...getInputProps()} />
-              {isDragActive
-                ? 'Drop the files here ...'
-                : 'Drag a picture here!'}
-            </div>
+        <div className="file-drop-zone">
+          <div {...getRootProps()}>
+            <input {...getInputProps()} />
+            {isDragActive ? 'Drop the files here ...' : 'Drag a picture here!'}
           </div>
-        </p>
-        <input className="submit-button" type="submit" value="Submit" />
+        </div>
       </form>
+      <input className="submit-button-brands" type="submit" value="Submit" />
     </main>
   )
 }
