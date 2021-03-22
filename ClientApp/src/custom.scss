@@ -20,33 +20,6 @@ body {
   color: #f2efec;
 }
 
-@media (min-width: 500px) {
-  .cigar-info-page {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-color: #1a191a;
-  }
-  .cigars-page {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-color: #1a191a;
-  }
-  .new-cigar-page {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-color: #1a191a;
-  }
-  .brands-page {
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-color: #1a191a;
-  }
-}
-
 header {
   position: relative;
   margin: 0;
@@ -345,4 +318,49 @@ a:focus,
 a:hover,
 a:active {
   color: #f2efec;
+}
+@media (min-width: 500px) {
+  .cigar-info-page,
+  .cigars-page,
+  .new-cigar-page,
+  .brands-page {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #1a191a;
+  }
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+
+    z-index: 1;
+
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+@media (min-width: 800px) {
+  .cigar-info-page,
+  .cigars-page,
+  .new-cigar-page,
+  .brands-page {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: #1a191a;
+  }
+
+  #menuToggle {
+    display: none;
+    position: absolute;
+    top: 6px;
+    left: 10px;
+
+    z-index: 1;
+
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }
