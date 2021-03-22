@@ -83,9 +83,18 @@ export function Cigar() {
         <p>Purchased:{moment(cigarInfo.dateBought).format('MMM Do YYYY')}</p>
         <p>Notes:{cigarInfo.notes}</p>
 
-        <button onClick={deleteCigar}> Delete </button>
-        <button onClick={updateInStock}> Update Quantity</button>
-        <button onClick={updateRemoveOne}> Remove One</button>
+        <button className="cigarButton" onClick={deleteCigar}>
+          {' '}
+          Delete{' '}
+        </button>
+        <button className="cigarButton" onClick={updateInStock}>
+          {' '}
+          Update Quantity
+        </button>
+        <button className="cigarButton" onClick={updateRemoveOne}>
+          {' '}
+          Remove One
+        </button>
       </div>
     </main>
   )

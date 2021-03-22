@@ -60,6 +60,12 @@ main {
     // border: 1px solid #f2efec;
     border-radius: 10px;
   }
+
+  button {
+    :hover {
+      color: tomato;
+    }
+  }
 }
 
 button {
@@ -68,14 +74,14 @@ button {
   border-radius: 5px;
   cursor: pointer;
   padding: 5px;
-  .button:hover {
+  :hover {
     color: tomato;
   }
 
   color: #f2efec;
   // font-family: 'Abril Fatface', cursive;
   font-size: smaller;
-  .button:active {
+  button:active {
     padding: 8px;
   }
 }
@@ -107,9 +113,13 @@ option {
   }
 }
 .cigar-info-page {
-  background-image: url(images/back.jpg);
-  background-size: cover;
+  background-image: url(images/back2.jpg);
+  background-size: 50vh, 50vw;
+  background-repeat: no-repeat;
   margin: 0;
+  .cigarButton:hover {
+    color: tomato;
+  }
 
   .cigar-info {
     font-family: 'messinaMono', 'Courier New', Courier, monospace;
