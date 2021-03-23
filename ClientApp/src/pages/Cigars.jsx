@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 export function Cigars() {
   const [cigars, setCigars] = useState([])
-  // const [newCigar, setNewCigar] = useState()
   const [filterText, setFilterText] = useState('')
 
   useEffect(() => {
@@ -27,18 +26,6 @@ export function Cigars() {
     }
     fetchCigars()
   }, [filterText])
-
-  // async function handleNewCigar(event) {
-  //   event.preventDefault()
-  //   const response = await axios.post('/api/Cigars', {
-  //     name: newCigar,
-  //   })
-
-  //   const responseWhenReplacingCigar = await axios.get('/api/Cigars')
-  //   setCigars(responseWhenReplacingCigar.data)
-
-  //   setNewCigar('')
-  // }
 
   return (
     <main className="cigars-page">

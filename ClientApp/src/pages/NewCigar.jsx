@@ -55,7 +55,6 @@ export function NewCigar() {
   async function handleFormSubmit(event) {
     event.preventDefault()
     await axios.post('/api/Cigars', newCigar)
-    // await axios.post('/api/Brands', selectedBrand)
     history.push('/')
   }
 
@@ -64,7 +63,6 @@ export function NewCigar() {
       <h2>Add A Cigar</h2>
       <form className="new-cigar-form" action="#" onSubmit={handleFormSubmit}>
         <p className="form-input">
-          {/* <label htmlFor="name"></label> */}
           <input
             placeholder="Name"
             type="text"
@@ -154,9 +152,6 @@ export function NewCigar() {
             value={selectedBrand}
             name="brandId"
             onChange={handleIntFieldChange}
-            // onChange={function (event) {
-            //   setSelectedBrand(Number(event.target.value))
-            // }}
           >
             <option value="">Brands</option>
             {brandsInfo.map((brandDetails) => {
