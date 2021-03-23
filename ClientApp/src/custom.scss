@@ -5,31 +5,31 @@ th:root {
 html {
   height: 100vh;
   width: 100vw;
-  background-color: #1a191a;
 }
 
 body {
   padding: 0;
   margin: 0 auto;
   min-height: 100%;
-
+  background-color: #1a191a;
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
-
-  // background-attachment: fixed;
-
   color: #f2efec;
 }
 
 header {
   position: relative;
   margin: 0;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
   color: #f2efec;
+
   h1 {
     text-align: center;
+  }
+  .header-links {
+    display: none;
+    :hover {
+      color: tomato;
+    }
   }
 }
 
@@ -38,7 +38,6 @@ ul li {
   margin-right: 3rem;
   margin-top: 0.5rem;
   height: auto;
-  // border: 1px solid white;
   :hover {
     color: tomato;
   }
@@ -61,7 +60,6 @@ button {
   }
 
   color: #f2efec;
-  // font-family: 'Abril Fatface', cursive;
   font-size: smaller;
   button:active {
     padding: 8px;
@@ -73,6 +71,7 @@ input {
   background: none;
   border-radius: 8px;
   text-align: center;
+  // padding: 0.65em;
 }
 
 option {
@@ -92,14 +91,8 @@ option {
 
 .cigars-page {
   background-image: url(images/back.jpg);
-  background-size: cover;
-  // height: 500px;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // position: relative;
-  text-align: center;
+  text-align: justify;
   display: flex;
-  // flex-wrap: wrap;
   flex-direction: column;
 
   h2 {
@@ -127,6 +120,10 @@ option {
     color: tomato;
   }
 
+  .cigarButton {
+    margin-left: 1rem;
+  }
+
   .cigar-info {
     font-family: 'messinaMono', 'Courier New', Courier, monospace;
 
@@ -136,20 +133,20 @@ option {
 
 .new-cigar-page {
   background-image: url(images/addcigar.jpg);
-  background-size: cover;
-
   height: 500px;
-
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  // border: 1px solid white;
 
   .new-cigar-form {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
+    input {
+      padding: 0.65em;
+    }
   }
   h2 {
     text-align: center;
@@ -175,7 +172,6 @@ option {
   background-position: center center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -188,8 +184,6 @@ option {
   .brand-form {
     display: flex;
     flex-direction: column;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
     align-items: center;
     .brandInput {
       padding: 1em;
@@ -274,35 +268,21 @@ option {
   transform-origin: 0% 100%;
 }
 
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
 #menuToggle input:checked ~ span {
   opacity: 1;
   transform: rotate(45deg) translate(-4px, -3px);
   background: #f2efec;
 }
 
-/*
- * But let's hide the middle one.
- */
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
 #menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
 #menu {
   position: absolute;
   width: 375px;
@@ -311,15 +291,10 @@ option {
   padding: 50px;
   padding-top: 125px;
   background-image: url('images/background2.jpg');
-
-  // background: #7b6c52;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-
   transform-origin: 0% 0%;
   transform: translate(-100%, 0);
-
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
@@ -327,9 +302,7 @@ option {
   padding: 30px 0;
   font-size: 28px;
 }
-/*
- * And let's slide it in from the left
- */
+
 #menuToggle input:checked ~ ul {
   transform: none;
 }
@@ -377,21 +350,28 @@ a:active {
   .cigars-page,
   .new-cigar-page,
   .brands-page {
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position-x: center;
-    // background-color: #1a191a;
+    font-size: larger;
 
     ul li {
       // text-align: center;
-      font-size: x-large;
+      font-size: larger;
       margin-left: 5rem;
       margin-right: 5rem;
     }
   }
+  header {
+    font-size: larger;
+    .header-links {
+      display: block;
+      display: flex;
+      justify-content: space-between;
+      align-items: left;
+      margin-top: -4rem;
+    }
+  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .cigar-info-page,
   .cigars-page,
   .new-cigar-page,
@@ -402,10 +382,18 @@ a:active {
     // background-color: #1a191a;
 
     ul li {
-      // text-align: center;
       font-size: x-large;
     }
-    hr {
+  }
+  header {
+    font-size: x-large;
+    .header-links {
+      display: block;
+      display: flex;
+      justify-content: space-between;
+      align-items: left;
+      margin-top: -5.5rem;
+      font-size: x-large;
     }
   }
 

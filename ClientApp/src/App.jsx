@@ -6,6 +6,7 @@ import { NewCigar } from './pages/NewCigar'
 import { Route, Switch } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Brands } from './pages/Brands'
+import { Footer } from './components/Footer'
 
 export function App() {
   return (
@@ -26,10 +27,7 @@ export function App() {
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
-      {/* <footer>
-        <p>logo</p>
-        <p>Github logo</p>
-      </footer> */}
+      <Footer />
     </>
   )
 }

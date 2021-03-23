@@ -57,8 +57,8 @@ export function Cigars() {
           return (
             <li key={cigarDetails.id}>
               <Link to={`/Cigars/${cigarDetails.id}`}>
-                Name:{cigarDetails.name} Qty:{cigarDetails.inStock} Brand:
-                {cigarDetails.brand.brandName}
+                Name:{cigarDetails.name} Brand:
+                {cigarDetails.brand.brandName} Qty:{cigarDetails.inStock}
               </Link>
               <hr />
             </li>

@@ -29,9 +29,16 @@ export function Header() {
             <Link to="/Brands" onClick={() => setOpenSesame(false)}>
               <li>Brands</li>
             </Link>
-            <a href="/signIn">
-              <li>Sign In</li>
-            </a>
+          </ul>
+        </div>
+        <div>
+          <ul className="header-links">
+            <Link to="/newCigar" onClick={() => setOpenSesame(false)}>
+              <li> Add A Cigar</li>
+            </Link>
+            <Link to="/Brands" onClick={() => setOpenSesame(false)}>
+              <li>Brands</li>
+            </Link>
           </ul>
         </div>
       </nav>
