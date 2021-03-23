@@ -13,7 +13,7 @@ body {
   min-height: 100%;
   background-color: #1a191a;
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
-  color: #f2efec;
+  color: white;
 }
 
 header {
@@ -59,7 +59,7 @@ button {
     color: tomato;
   }
 
-  color: #f2efec;
+  color: white;
   font-size: smaller;
   button:active {
     padding: 8px;
@@ -84,6 +84,8 @@ option {
 .cigar-info-page,
 .new-cigar-page,
 .brands-page {
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
+  color: white;
   background-size: cover;
   max-width: 72ch;
   margin: 0 auto;
@@ -106,11 +108,7 @@ option {
 }
 .cigar-info-page {
   background-image: url(images/back2.jpg);
-  // background-size: cover;
-  // height: 500px;
-  // background-position: center center;
-  // background-repeat: no-repeat;
-  // position: relative;
+
   text-align: justify;
   display: flex;
   font-size: larger;
@@ -142,6 +140,7 @@ option {
     grid-template-columns: 1fr 1fr;
 
     .form-input {
+      font-style: bold;
       padding: 0.25em;
       input,
       select {
@@ -160,15 +159,18 @@ option {
   }
 
   .select-option {
-    background-color: #f2efec;
-    color: black;
+    background: none;
+    color: white;
     border-radius: 10px;
     text-align: center;
   }
   .submit-button {
-    background-color: #f2efec;
-    color: black;
+    background: none;
+    color: white;
     text-align: center;
+  }
+  :hover {
+    color: tomato;
   }
 }
 
@@ -187,18 +189,19 @@ option {
   }
   .submit-button-brands {
     padding: 0.7rem 4rem;
-    :hover {
-      color: tomato;
-    }
   }
 
   .brand-form {
+    font-size: medium;
     display: flex;
     flex-direction: column;
     align-items: center;
     .brandInput {
       padding: 1em;
       margin-top: -20px;
+    }
+    :hover {
+      color: tomato;
     }
   }
 }
@@ -425,4 +428,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: smaller;
+  font-family: 'messinaMono', 'Courier New', Courier, monospace;
 }

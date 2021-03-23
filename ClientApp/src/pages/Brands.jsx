@@ -109,7 +109,7 @@ export function Brands() {
           )
         })}
       </ul>
-      <h3>New Brand</h3>
+      <h3>Add New Brand</h3>
       <form className="brand-form" onSubmit={handleNewBrand}>
         <p>
           <input
