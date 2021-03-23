@@ -147,6 +147,7 @@ export function NewCigar() {
             onChange={handleStringFieldChange}
           ></input>
         </p>
+
         <p className="form-input">
           <select
             className="select-option"
@@ -166,14 +167,8 @@ export function NewCigar() {
               )
             })}
           </select>
-          {/* <input
-            placeholder="Brand"
-            name="Brand"
-            value={newCigar.brand.brandName}
-            onChange={handleStringFieldChange}
-          ></input> */}
         </p>
-        <p>
+        <p className="form-input">
           <input className="submit-button" type="submit" value="Submit" />
         </p>
       </form>

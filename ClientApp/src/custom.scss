@@ -133,24 +133,32 @@ option {
 
 .new-cigar-page {
   background-image: url(images/addcigar.jpg);
-  height: 500px;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 
   .new-cigar-form {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-    input {
-      padding: 0.65em;
+    .form-input {
+      padding: 0.25em;
+      input,
+      select {
+        display: block;
+        margin: 0 auto;
+        padding: 0.65em;
+      }
+      select,
+      input[type='submit'] {
+        width: 10rem;
+      }
     }
   }
   h2 {
     text-align: center;
   }
+
   .select-option {
     background-color: #f2efec;
     color: black;
@@ -158,9 +166,6 @@ option {
     text-align: center;
   }
   .submit-button {
-    margin-top: 0px;
-    margin-right: 1rem;
-    margin-left: 20px;
     background-color: #f2efec;
     color: black;
     text-align: center;
@@ -180,6 +185,12 @@ option {
   h3 {
     margin: 0;
   }
+  .submit-button-brands {
+    padding: 0.7rem 4rem;
+    :hover {
+      color: tomato;
+    }
+  }
 
   .brand-form {
     display: flex;
@@ -197,7 +208,7 @@ option {
   border: 1px solid #f2efec;
   color: #f2efec;
   border-radius: 10px;
-  padding: 1em;
+  padding: 0.8rem 1.8rem;
 }
 
 #menuToggle {
@@ -408,4 +419,10 @@ a:active {
     -webkit-user-select: none;
     user-select: none;
   }
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

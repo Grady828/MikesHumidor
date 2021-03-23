@@ -139,7 +139,7 @@ export function Brands() {
         <div className="file-drop-zone">
           <div {...getRootProps()}>
             <input {...getInputProps()} />
-            {isDragActive ? 'Drop the files here ...' : 'Drag a picture here!'}
+            {isDragActive ? 'Drop the files here ...' : 'Add Pic Here'}
           </div>
         </div>
         <p>
