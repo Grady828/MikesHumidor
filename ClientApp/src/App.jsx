@@ -26,7 +26,6 @@ export function App() {
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>
-
       {/* <footer>
         <p>logo</p>
         <p>Github logo</p>
