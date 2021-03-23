@@ -188,9 +188,13 @@ option {
   .brand-form {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
     align-items: center;
+    .brandInput {
+      padding: 1em;
+      margin-top: -20px;
+    }
   }
 }
 

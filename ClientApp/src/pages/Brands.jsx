@@ -142,8 +142,14 @@ export function Brands() {
             {isDragActive ? 'Drop the files here ...' : 'Drag a picture here!'}
           </div>
         </div>
+        <p>
+          <input
+            className="submit-button-brands"
+            type="submit"
+            value="Submit"
+          />
+        </p>
       </form>
-      <input className="submit-button-brands" type="submit" value="Submit" />
     </main>
   )
 }
