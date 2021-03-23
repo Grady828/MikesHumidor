@@ -71,7 +71,6 @@ input {
   background: none;
   border-radius: 8px;
   text-align: center;
-  // padding: 0.65em;
 }
 
 option {
@@ -247,15 +246,12 @@ option {
 
   cursor: pointer;
 
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0;
+  z-index: 2;
 
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
 #menuToggle span {
   display: block;
   width: 37px;
@@ -337,10 +333,6 @@ a:active {
   .cigars-page,
   .new-cigar-page,
   .brands-page {
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position-x: center;
-    // background-color: #1a191a;
     ul li {
       text-align: justify;
       font-size: larger;
@@ -367,7 +359,6 @@ a:active {
     font-size: larger;
 
     ul li {
-      // text-align: center;
       font-size: larger;
       margin-left: 5rem;
       margin-right: 5rem;
@@ -390,11 +381,6 @@ a:active {
   .cigars-page,
   .new-cigar-page,
   .brands-page {
-    // background-size: contain;
-    // background-repeat: no-repeat;
-    // background-position-x: center;
-    // background-color: #1a191a;
-
     ul li {
       font-size: x-large;
     }
