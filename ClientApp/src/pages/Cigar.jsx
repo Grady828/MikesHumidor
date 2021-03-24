@@ -64,7 +64,7 @@ export function Cigar() {
   return (
     <main className="cigar-info-page">
       <div>
-        <p>Name: {cigarInfo.name}</p>
+        <h2>{cigarInfo.name}</h2>
         <p>Length:{cigarInfo.length}"</p>
         <p>Gauge:{cigarInfo.gauge}</p>
         <p>Wrapper:{cigarInfo.wrapper}</p>

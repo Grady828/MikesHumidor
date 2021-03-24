@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom'
 import { Header } from './components/Header'
 import { Brands } from './pages/Brands'
 import { Footer } from './components/Footer'
+import { Brand } from './pages/Brand'
 
 export function App() {
   return (
@@ -24,6 +25,9 @@ export function App() {
         </Route>
         <Route exact path="/Brands">
           <Brands />
+        </Route>
+        <Route exact path="/Brand/:id">
+          <Brand />
         </Route>
         <Route path="*">Not Found</Route>
       </Switch>

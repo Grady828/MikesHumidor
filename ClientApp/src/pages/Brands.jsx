@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { useDropzone } from 'react-dropzone'
 import { authHeader } from '../auth'
+import { Link } from 'react-router-dom'
 
 export function Brands() {
   const [brandsInfo, setBrandsInfo] = useState([])
@@ -80,18 +81,16 @@ export function Brands() {
         {brandsInfo.map((brandDetails) => {
           return (
             <li key={brandDetails.id}>
-              Name:
-              {brandDetails.brandName}
-              <p />
-              Description:{brandDetails.description}
-              <p />
-              {brandDetails.photoURL && (
-                <img
-                  alt={brandDetails.brandName}
-                  width={50}
-                  src={brandDetails.photoURL}
-                />
-              )}
+              <Link to={`/Brand/${brandDetails.id}`}>
+                <h3>{brandDetails.brandName}</h3>
+                {brandDetails.photoURL && (
+                  <img
+                    alt={brandDetails.brandName}
+                    width={100}
+                    src={brandDetails.photoURL}
+                  />
+                )}
+              </Link>
               <hr />
             </li>
           )
