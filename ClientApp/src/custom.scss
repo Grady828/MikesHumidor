@@ -92,14 +92,15 @@ option {
 }
 
 .brand-info-page {
-  // background-image: url(images/brand.jpg);
-  // background-size: 300px 100px;
+  background-image: url(images/brand.webp);
+
   text-align: justify;
   display: flex;
-  // text-indent: 2rem;
-  justify-content: center;
+  font-size: larger;
+  margin-left: 2rem;
+
   button {
-    align-items: center;
+    margin-left: auto;
   }
 }
 
@@ -199,6 +200,11 @@ option {
   h3 {
     margin: 0;
   }
+  // img {
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
   .submit-button-brands {
     padding: 0.7rem 4rem;
   }

@@ -36,7 +36,7 @@ export function Brand() {
           {brandInfo.photoURL && (
             <img
               alt={brandInfo.brandName}
-              width={100}
+              width={200}
               src={brandInfo.photoURL}
             />
           )}
