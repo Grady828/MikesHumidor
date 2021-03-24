@@ -27,7 +27,7 @@ export function Brands() {
   async function handleNewBrand(event) {
     event.preventDefault()
     await axios.post('/api/Brands', newBrand)
-    history.push('/NewCigar')
+    history.push('/Brands')
   }
 
   function handleStringField(event) {
@@ -82,7 +82,7 @@ export function Brands() {
           return (
             <li key={brandDetails.id}>
               <Link to={`/Brand/${brandDetails.id}`}>
-                <h3>{brandDetails.brandName}</h3>
+                {/* <h3>{brandDetails.brandName}</h3> */}
                 {brandDetails.photoURL && (
                   <img
                     alt={brandDetails.brandName}

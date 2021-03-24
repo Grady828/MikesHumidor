@@ -92,17 +92,25 @@ option {
 }
 
 .brand-info-page {
-  background-image: url(images/brand.webp);
-  text-align: justify;
+  background-image: url(images/brand.jpg);
+  text-align: center;
   display: flex;
-  margin-left: 2rem;
   font-size: large;
+  background-position: center;
 
-  button {
-    margin-left: auto;
-    :hover {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    .delete-brand:hover {
       color: tomato;
     }
+  }
+
+  button {
+    align-items: center;
+    border-radius: 8px;
   }
 }
 

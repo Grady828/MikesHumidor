@@ -41,7 +41,9 @@ export function Brand() {
             />
           )}
         </p>
-        <button onClick={deleteBrand}>Delete</button>
+        <button className="delete-brand" onClick={deleteBrand}>
+          Delete
+        </button>
       </div>
     </main>
   )
