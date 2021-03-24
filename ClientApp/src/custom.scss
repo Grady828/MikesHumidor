@@ -93,14 +93,16 @@ option {
 
 .brand-info-page {
   background-image: url(images/brand.webp);
-
   text-align: justify;
   display: flex;
-  font-size: larger;
   margin-left: 2rem;
+  font-size: large;
 
   button {
     margin-left: auto;
+    :hover {
+      color: tomato;
+    }
   }
 }
 
