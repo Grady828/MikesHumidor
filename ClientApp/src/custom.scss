@@ -208,7 +208,7 @@ option {
   justify-content: center;
   align-items: center;
   h3 {
-    margin: 0;
+    text-align: center;
   }
   // img {
   //   justify-content: center;
@@ -361,7 +361,8 @@ a:active {
   .cigar-info-page,
   .cigars-page,
   .new-cigar-page,
-  .brands-page {
+  .brands-page,
+  .brand-info-page {
     ul li {
       text-align: justify;
       font-size: larger;
@@ -384,13 +385,14 @@ a:active {
   .cigar-info-page,
   .cigars-page,
   .new-cigar-page,
-  .brands-page {
-    font-size: larger;
+  .brands-page,
+  .brand-info-page {
+    font-size: x-large;
 
     ul li {
       font-size: larger;
-      margin-left: 5rem;
-      margin-right: 5rem;
+      // margin-left: 5rem;
+      // margin-right: 5rem;
     }
   }
   header {
