@@ -82,12 +82,25 @@ option {
 .cigars-page,
 .cigar-info-page,
 .new-cigar-page,
-.brands-page {
+.brands-page,
+.brand-info-page {
   font-family: 'messinaMono', 'Courier New', Courier, monospace;
   color: white;
   background-size: cover;
   max-width: 72ch;
   margin: 0 auto;
+}
+
+.brand-info-page {
+  // background-image: url(images/brand.jpg);
+  // background-size: 300px 100px;
+  text-align: justify;
+  display: flex;
+  // text-indent: 2rem;
+  justify-content: center;
+  button {
+    align-items: center;
+  }
 }
 
 .cigars-page {
